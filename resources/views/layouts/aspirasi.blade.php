@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Lingkung Pasir - Pengumuman</title>
+  <title>Lingkung Pasir - Aspirasi</title>
     
   <!-- theme meta -->
   <meta name="theme-name" content="mono" />
@@ -209,7 +209,7 @@
                     
                     
                     
-                    <script src="plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
+                    <script src="{{ url('plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js') }}"></script>
                     
                     
                     

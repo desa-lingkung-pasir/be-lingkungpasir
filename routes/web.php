@@ -7,6 +7,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\PerangkatController;
 use App\Http\Controllers\PengumumanController;
+use App\Http\Controllers\LembagaController;
+use App\Http\Controllers\AspirasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,14 +25,15 @@ Route::get('/', [AuthController::class, 'login']);
 Route::post('/check-login', [AuthController::class, 'check_login']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
-Route::get('/dashboard', [WebController::class, 'index'])->middleware(['auth', 'checkRole:admin']);
+Route::get('/dashboard', [WebController::class, 'index'])->middleware(['auth', 'checkRole:admin,super admin']);
 
-Route::get('/profile', [ProfileController::class, 'index']);
-Route::get('/create', [ProfileController::class, 'create']);
-Route::post('/store', [ProfileController::class, 'store']);
-Route::get('/profile/edit/{id}', [ProfileController::class, 'edit']);
-Route::put('/profile/update/{id}', [ProfileController::class, 'update']);
-Route::put('/profile/delete/{id}', [ProfileController::class, 'update']);
+Route::group(['middleware' => ['auth', 'checkRole:admin']], function() {
+    Route::get('/profile', [ProfileController::class, 'index']);
+    Route::post('/store', [ProfileController::class, 'store']);
+    Route::get('/profile/edit/{id}', [ProfileController::class, 'edit']);
+    Route::put('/profile/update/{id}', [ProfileController::class, 'update']);
+    Route::get('/profile/delete/{id}', [ProfileController::class, 'update']);
+});
 
 // Data Jabatan
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function() {
@@ -56,4 +59,20 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function() {
     Route::get('/pengumuman/edit/{id}', [PengumumanController::class, 'edit']);
     Route::put('/pengumuman/update/{id}', [PengumumanController::class, 'update']);
     Route::get('/pengumuman/delete/{id}', [PengumumanController::class, 'delete']);
+});
+
+Route::group(['middleware' => ['auth', 'checkRole:admin']], function() {
+    Route::get('/kelembagaan', [LembagaController::class, 'index']);
+    Route::post('/kelembagaan/post', [LembagaController::class, 'post']);
+    Route::get('/kelembagaan/edit/{id}', [LembagaController::class, 'edit']);
+    Route::put('/kelembagaan/update/{id}', [LembagaController::class, 'update']);
+    Route::get('/kelembagaan/delete/{id}', [LembagaController::class, 'delete']);
+});
+
+Route::group(['middleware' => ['auth', 'checkRole:admin']], function() {
+    Route::get('/aspirasi', [AspirasiController::class, 'index']);
+    Route::post('/aspirasi/post', [AspirasiController::class, 'post']);
+    Route::get('/aspirasi/edit/{id}', [AspirasiController::class, 'edit']);
+    Route::put('/aspirasi/update/{id}', [AspirasiController::class, 'update']);
+    Route::get('/aspirasi/delete/{id}', [AspirasiController::class, 'delete']);
 });

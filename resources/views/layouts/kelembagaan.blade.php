@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Lingkung Pasir - Pengumuman</title>
+  <title>Lingkung Pasir - Kelembagaan</title>
     
   <!-- theme meta -->
   <meta name="theme-name" content="mono" />
@@ -57,6 +57,9 @@
       NProgress.configure({ showSpinner: false });
       NProgress.start();
     </script>
+
+    
+    <div id="toaster"></div>
     
 
     <!-- ====================================

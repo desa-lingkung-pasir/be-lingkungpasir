@@ -2,9 +2,9 @@
           <div id="sidebar" class="sidebar sidebar-with-footer">
             <!-- Aplication Brand -->
             <div class="app-brand">
-              <a href="/index.html">
-                <img src="images/lingkung_pasir.png" alt="Lingkungpasir">
-                <span class="brand-name">LINGKUNG PASIR</span>
+              <a href="{{ url('dashboard') }}">
+                <img src="{{ url('images/lingkungpasir.png') }}" alt="Lingkungpasir">
+                <span class="brand-name">LINGKUNGPASIR</span>
               </a>
             </div>
             <!-- begin sidebar scrollbar -->
@@ -108,12 +108,25 @@
                             <li >
                               <a class="sidenav-item-link" href="{{ url('/galeri') }}">
                                 <span class="nav-text">Galeri</span>
-                                
                               </a>
                             </li>
                       </div>
                     </ul>
-                  </li>                
+                  </li>
+                  <li
+                   >
+                    <a class="sidenav-item-link" href="{{ url('kelembagaan') }}">
+                      <i class="mdi mdi-office-building"></i>
+                      <span class="nav-text">Kelembagaan</span>
+                    </a>
+                  </li>          
+                  <li
+                   >
+                    <a class="sidenav-item-link" href="{{ url('aspirasi') }}">
+                      <i class="mdi mdi-led-on"></i>
+                      <span class="nav-text">Aspirasi</span>
+                    </a>
+                  </li>             
                   <li class="section-title">
                     Documentation
                   </li>
